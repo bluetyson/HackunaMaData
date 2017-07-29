@@ -22,32 +22,23 @@ yelp.res = POST("https://api.yelp.com/oauth2/token",
 
 token = content(yelp.res)$access_token
 
-
-# QUERY
-query.postcode = 5064
-query.country  = "Australia"
-
-term = "coffee"
-location = paste (query.postcode, ", ", query.country)
-limit = 10
-(url =
-    modify_url (yelp, path = c("v3", "businesses", "search"),
-               query = list(term = term, location = location, limit = limit)))
-res = GET (url, add_headers('Authorization' = paste("bearer", token)))
-
-# show request status
-http_status(res)
-
-# get response content in list of lists (converted from JSON)
+function(postcode, country, term) {
+  limit <- 10
+  location <- paste0(postcode,", ",country)
+  url <- modify_url(yelp, path=c("v3","businesses","search"),
+                    query=list(term=term,location=location,limit=limit))
+  response <- GET (url, add_headers('Authorization' = paste("bearer", token)))
+  
+  # show request status
+  http_status(response)
+  
+  # get response content in list of lists (converted from JSON)
   # result is a list of list, use length in a while loop to get individual elements,
   # or map_df as seen below to get individual attributes from elements.
-ct = content(res)
-
-# show just name and phone
-ct$businesses %>% 
-  map_df(`[`, c("name", "phone"))
-
-# display list as JSON
-# json = fromJSON (toJSON(ct, pretty=TRUE))
+  ct <- content(response)
+  
+  return(ct)
+  
+}
 
 
