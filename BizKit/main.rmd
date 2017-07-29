@@ -1,5 +1,5 @@
 ---
-title: "Flex Dashboard"
+title: "BizKit 1.0"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
