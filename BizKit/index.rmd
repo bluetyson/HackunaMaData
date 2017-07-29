@@ -3,7 +3,7 @@ title: "BizKit 1.0"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
-    vertical_layout: fill
+    vertical_layout: scroll
 runtime: shiny
 ---
 
@@ -40,6 +40,9 @@ if (!require(ggmap)) {
 if (!require(maptools)) {
   install.packages("maptools")
 }
+if (!require(data.table)) {
+  install.packages("data.table")
+}
 
 library(rmarkdown)
 library(flexdashboard)
@@ -51,6 +54,7 @@ library(sp)
 library(maps)
 library(ggmap)
 library(maptools)
+library(data.table)
 
 centroids <- read.csv(file="data/csv/suburb_centroids.csv", header=TRUE, sep=",")
 ```
@@ -130,8 +134,7 @@ output$map <- renderLeaflet({
     addPolylines(data = major.roads, color="red") %>%
     addPolylines(data = minor.roads, color="salmon") %>%
     addPolylines(data = tkml, color="green")
-  
-})
+  })
 
 leafletOutput('map')  
 
@@ -141,9 +144,13 @@ Row
 -----------------------------------------------------------------------
 
 ```{r}
+yelp.get <- dget("yelp_api_call.R")
+
 click_marker <- eventReactive(input$map_marker_click, {
 
   x <- input$map_marker_click
+  # centroids[centroids$id == input$map_market_click, ]
+  # yelp.data <<- yelp.get(input$map_marker_click, "Australia")
 
   return(x$id)
 
@@ -165,5 +172,33 @@ output$chart <- renderHighchart({
 })
 
 highchartOutput('chart')
+
+
+##### IMPORT YELP DATA ######
+# yelp.get <- dget("yelp_api_call.R")
+# yelp.data <- yelp.get(5000,"Australia")
+# cats <- unlist(yelp.data$category)
+# count.cats <- table(cats)
+# count.data <- data.table(category=row.names(count.cats),
+#                          count=as.numeric(count.cats))
+
+
+output$chart2 <- renderHighchart({
+yelp.get <- dget("yelp_api_call.R")
+yelp.data <- yelp.get(data_for_chart()$zipcode,"Australia")
+cats <- unlist(yelp.data$category)
+count.cats <- table(cats)
+count.data <- data.table(category=row.names(count.cats),
+                         count=as.numeric(count.cats))
+
+  highchart() %>%
+    hc_title(text = "distribution of cuisines",
+             style = list(fontSize = "15px")) %>% 
+    hc_chart(type = "column") %>% 
+    hc_xAxis(categories = count.data$category) %>% 
+    hc_add_series(count.data$count, name = "count", showInLegend = FALSE) 
+})
+
+highchartOutput('chart2')
 
 ```
