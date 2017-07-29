@@ -1,0 +1,432 @@
+Suburb,Post Code,LGA
+Adelaide,5000,City of Adelaide
+North Adelaide,5006,City of Adelaide
+Bowden,5007,City of Charles Sturt
+Brompton,5007,City of Charles Sturt
+Hindmarsh,5007,City of Charles Sturt
+Welland,5007,City of Charles Sturt
+West Hindmarsh,5007,City of Charles Sturt
+Croydon,5008,City of Charles Sturt
+Devon Park,5008,City of Charles Sturt
+Renown Park,5008,City of Charles Sturt
+Ridleyton,5008,City of Charles Sturt
+West Croydon,5008,City of Charles Sturt
+Croydon Park,5008,City of Port Adelaide Enfield
+Devon Park,5008,City of Port Adelaide Enfield
+Dudley Park,5008,City of Port Adelaide Enfield
+Allenby Gardens,5009,City of Charles Sturt
+Beverley,5009,City of Charles Sturt
+Kilkenny,5009,City of Charles Sturt
+Angle Park,5010,City of Port Adelaide Enfield
+Ferryden Park,5010,City of Port Adelaide Enfield
+Regency Park,5010,City of Port Adelaide Enfield
+Woodville,5011,City of Charles Sturt
+Woodville Park,5011,City of Charles Sturt
+Woodville South,5011,City of Charles Sturt
+Woodville West,5011,City of Charles Sturt
+Athol Park,5012,City of Charles Sturt
+Woodville North,5012,City of Charles Sturt
+Mansfield Park,5012,City of Port Adelaide Enfield
+Woodville Gardens,5012,City of Port Adelaide Enfield
+Pennington,5013,City of Charles Sturt
+Rosewater,5013,City of Charles Sturt
+Gillman,5013,City of Port Adelaide Enfield
+Ottoway,5013,City of Port Adelaide Enfield
+Rosewater,5013,City of Port Adelaide Enfield
+Wingfield,5013,City of Port Adelaide Enfield
+Albert Park,5014,City of Charles Sturt
+Cheltenham,5014,City of Charles Sturt
+Hendon,5014,City of Charles Sturt
+Royal Park,5014,City of Charles Sturt
+Alberton,5014,City of Port Adelaide Enfield
+Queenstown,5014,City of Port Adelaide Enfield
+Birkenhead,5015,City of Port Adelaide Enfield
+Ethelton,5015,City of Port Adelaide Enfield
+Glanville,5015,City of Port Adelaide Enfield
+Port Adelaide,5015,City of Port Adelaide Enfield
+Largs Bay,5016,City of Port Adelaide Enfield
+Largs North,5016,City of Port Adelaide Enfield
+Peterhead,5016,City of Port Adelaide Enfield
+Osborne,5017,City of Port Adelaide Enfield
+Taperoo,5017,City of Port Adelaide Enfield
+North Haven,5018,City of Port Adelaide Enfield
+Outer Harbor,5018,City of Port Adelaide Enfield
+Semaphore Park,5019,City of Charles Sturt
+Exeter,5019,City of Port Adelaide Enfield
+Semaphore,5019,City of Port Adelaide Enfield
+Semaphore South,5019,City of Port Adelaide Enfield
+West Lakes Shore,5020,City of Charles Sturt
+West Lakes,5021,City of Charles Sturt
+Grange,5022,City of Charles Sturt
+Henley Beach,5022,City of Charles Sturt
+Henley Beach South,5022,City of Charles Sturt
+Tennyson,5022,City of Charles Sturt
+Findon,5023,City of Charles Sturt
+Seaton,5023,City of Charles Sturt
+Fulham Gardens,5024,City of Charles Sturt
+West Beach,5024,City of Charles Sturt
+Fulham,5024,City of West Torrens
+West Beach,5024,City of West Torrens
+Flinders Park,5025,City of Charles Sturt
+Kidman Park,5025,City of Charles Sturt
+Mile End,5031,City of West Torrens
+Mile End South,5031,City of West Torrens
+Thebarton,5031,City of West Torrens
+Torrensville,5031,City of West Torrens
+Brooklyn Park,5032,City of West Torrens
+Lockleys,5032,City of West Torrens
+Underdale,5032,City of West Torrens
+Cowandilla,5033,City of West Torrens
+Hilton,5033,City of West Torrens
+Marleston,5033,City of West Torrens
+Richmond,5033,City of West Torrens
+West Richmond,5033,City of West Torrens
+Clarence Park,5034,City of Unley
+Goodwood,5034,City of Unley
+Kings Park,5034,City of Unley
+Millswood,5034,City of Unley
+Wayville,5034,City of Unley
+Black Forest,5035,City of Unley
+Everard Park,5035,City of Unley
+Forestville,5035,City of Unley
+Ashford,5035,City of West Torrens
+Keswick,5035,City of West Torrens
+Keswick Terminal,5035,City of West Torrens
+Glandore,5037,City of Marion
+Glandore,5037,City of West Torrens
+Kurralta Park,5037,City of West Torrens
+Netley,5037,City of West Torrens
+North Plympton,5037,City of West Torrens
+Plympton Park,5038,City of Marion
+South Plympton,5038,City of Marion
+Camden Park,5038,City of West Torrens
+Plympton,5038,City of West Torrens
+Edwardstown,5039,City of Marion
+Clarence Gardens,5039,City of Mitcham
+Melrose Park,5039,City of Mitcham
+Novar Gardens,5040,City of West Torrens
+Colonel Light Gardens,5041,City of Mitcham
+Cumberland Park,5041,City of Mitcham
+Daw Park,5041,City of Mitcham
+Panorama,5041,City of Mitcham
+Westbourne Park,5041,City of Mitcham
+Clovelly Park,5042,City of Marion
+Bedford Park,5042,City of Mitcham
+Pasadena,5042,City of Mitcham
+St Marys,5042,City of Mitcham
+Ascot Park,5043,City of Marion
+Marion,5043,City of Marion
+Mitchell Park,5043,City of Marion
+Morphettville,5043,City of Marion
+Park Holme,5043,City of Marion
+Somerton Park,5044,City of Holdfast Bay
+Glengowrie,5044,City of Marion
+Glenelg,5045,City of Holdfast Bay
+Glenelg,5045,City of Holdfast Bay
+Glenelg East,5045,City of Holdfast Bay
+Glenelg North,5045,City of Holdfast Bay
+Glenelg South,5045,City of Holdfast Bay
+Glenelg North,5045,City of West Torrens
+Oaklands Park,5046,City of Marion
+Warradale,5046,City of Marion
+Darlington,5047,City of Marion
+Seacombe Gardens,5047,City of Marion
+Seacombe Heights,5047,City of Marion
+Sturt,5047,City of Marion
+Darlington,5047,City of Onkaparinga
+Brighton,5048,City of Holdfast Bay
+Hove,5048,City of Holdfast Bay
+North Brighton,5048,City of Holdfast Bay
+South Brighton,5048,City of Holdfast Bay
+Dover Gardens,5048,City of Marion
+Kingston Park,5049,City of Holdfast Bay
+Seacliff,5049,City of Holdfast Bay
+Seacliff Park,5049,City of Holdfast Bay
+Marino,5049,City of Marion
+Seacliff Park,5049,City of Marion
+Seaview Downs,5049,City of Marion
+Bellevue Heights,5050,City of Mitcham
+Eden Hills,5050,City of Mitcham
+Blackwood,5051,City of Mitcham
+Coromandel Valley,5051,City of Mitcham
+Craigburn Farm,5051,City of Mitcham
+Hawthorndene,5051,City of Mitcham
+Coromandel Valley,5051,City of Onkaparinga
+Belair,5052,City of Mitcham
+Glenalta,5052,City of Mitcham
+Hyde Park,5061,City of Unley
+Malvern,5061,City of Unley
+Unley,5061,City of Unley
+Unley Park,5061,City of Unley
+Brown Hill Creek,5062,City of Mitcham
+Clapham,5062,City of Mitcham
+Hawthorn,5062,City of Mitcham
+Kingswood,5062,City of Mitcham
+Lower Mitcham,5062,City of Mitcham
+Lynton,5062,City of Mitcham
+Mitcham,5062,City of Mitcham
+Netherby,5062,City of Mitcham
+Springfield,5062,City of Mitcham
+Torrens Park,5062,City of Mitcham
+Eastwood,5063,City of Burnside
+Frewville,5063,City of Burnside
+Fullarton,5063,City of Unley
+Highgate,5063,City of Unley
+Parkside,5063,City of Unley
+Glen Osmond,5064,City of Burnside
+Glenunga,5064,City of Burnside
+Mount Osmond,5064,City of Burnside
+St Georges,5064,City of Burnside
+Urrbrae,5064,City of Mitcham
+Myrtle Bank,5064,City of Unley
+Dulwich,5065,City of Burnside
+Glenside,5065,City of Burnside
+Linden Park,5065,City of Burnside
+Toorak Gardens,5065,City of Burnside
+Tusmore,5065,City of Burnside
+Beaumont,5066,City of Burnside
+Burnside,5066,City of Burnside
+Erindale,5066,City of Burnside
+Hazelwood Park,5066,City of Burnside
+Stonyfell,5066,City of Burnside
+Waterfall Gully,5066,City of Burnside
+Wattle Park,5066,City of Burnside
+Beulah Park,5067,City of Burnside
+Rose Park,5067,City of Burnside
+Kent Town,5067,City of Norwood Payneham St Peters
+Norwood,5067,City of Norwood Payneham St Peters
+Kensington Gardens,5068,City of Burnside
+Kensington Park,5068,City of Burnside
+Leabrook,5068,City of Burnside
+Heathpool,5068,City of Norwood Payneham St Peters
+Kensington,5068,City of Norwood Payneham St Peters
+Marryatville,5068,City of Norwood Payneham St Peters
+St Morris,5068,City of Norwood Payneham St Peters
+Trinity Gardens,5068,City of Norwood Payneham St Peters
+College Park,5069,City of Norwood Payneham St Peters
+Evandale,5069,City of Norwood Payneham St Peters
+Hackney,5069,City of Norwood Payneham St Peters
+Maylands,5069,City of Norwood Payneham St Peters
+St Peters,5069,City of Norwood Payneham St Peters
+Stepney,5069,City of Norwood Payneham St Peters
+Felixstow,5070,City of Norwood Payneham St Peters
+Firle,5070,City of Norwood Payneham St Peters
+Glynde,5070,City of Norwood Payneham St Peters
+Joslin,5070,City of Norwood Payneham St Peters
+Marden,5070,City of Norwood Payneham St Peters
+Payneham,5070,City of Norwood Payneham St Peters
+Payneham South,5070,City of Norwood Payneham St Peters
+Royston Park,5070,City of Norwood Payneham St Peters
+Auldana,5072,City of Burnside
+Magill,5072,City of Burnside
+Rosslyn Park,5072,City of Burnside
+Skye,5072,City of Burnside
+Magill,5072,City of Campbelltown
+Hectorville,5073,City of Campbelltown
+Rostrevor,5073,City of Campbelltown
+Tranmere,5073,City of Campbelltown
+Campbelltown,5074,City of Campbelltown
+Newton,5074,City of Campbelltown
+Paradise,5075,City of Campbelltown
+Dernancourt,5075,City of Port Adelaide Enfield
+Dernancourt,5075,City of Tea Tree Gully
+Athelstone,5076,City of Campbelltown
+Collinswood,5081,City of Prospect
+Medindie Gardens,5081,City of Prospect
+Gilberton,5081,Corporation of the Town of Walkerville
+Medindie,5081,Corporation of the Town of Walkerville
+Vale Park,5081,Corporation of the Town of Walkerville
+Walkerville,5081,Corporation of the Town of Walkerville
+Ovingham,5082,City of Charles Sturt
+Fitzroy,5082,City of Prospect
+Prospect,5082,City of Prospect
+Ovingham,5082,City of Prospect
+Thorngate,5082,City of Prospect
+Broadview,5083,City of Port Adelaide Enfield
+Sefton Park,5083,City of Port Adelaide Enfield
+Broadview,5083,City of Prospect
+Nailsworth,5083,City of Prospect
+Sefton Park,5083,City of Prospect
+Blair Athol,5084,City of Port Adelaide Enfield
+Kilburn,5084,City of Port Adelaide Enfield
+Clearview,5085,City of Port Adelaide Enfield
+Enfield,5085,City of Port Adelaide Enfield
+Lightsview,5085,City of Port Adelaide Enfield
+Northfield,5085,City of Port Adelaide Enfield
+Northgate,5085,City of Port Adelaide Enfield
+Gilles Plains,5086,City of Port Adelaide Enfield
+Greenacres,5086,City of Port Adelaide Enfield
+Hampstead Gardens,5086,City of Port Adelaide Enfield
+Hillcrest,5086,City of Port Adelaide Enfield
+Manningham,5086,City of Port Adelaide Enfield
+Oakden,5086,City of Port Adelaide Enfield
+Gilles Plains,5086,City of Tea Tree Gully
+Klemzig,5087,City of Port Adelaide Enfield
+Windsor Gardens,5087,City of Port Adelaide Enfield
+Holden Hill,5088,City of Port Adelaide Enfield
+Holden Hill,5088,City of Tea Tree Gully
+Highbury,5089,City of Tea Tree Gully
+Hope Valley,5090,City of Tea Tree Gully
+Banksia Park,5091,City of Tea Tree Gully
+Tea Tree Gully,5091,City of Tea Tree Gully
+Vista,5091,City of Tea Tree Gully
+Modbury,5092,City of Tea Tree Gully
+Modbury Heights,5092,City of Tea Tree Gully
+Modbury North,5092,City of Tea Tree Gully
+Valley View,5093,City of Port Adelaide Enfield
+Para Vista,5093,City of Salisbury
+Valley View,5093,City of Salisbury
+Valley View,5093,City of Tea Tree Gully
+Dry Creek,5094,City of Port Adelaide Enfield
+Gepps Cross,5094,City of Port Adelaide Enfield
+Cavan,5094,City of Salisbury
+Dry Creek,5094,City of Salisbury
+Mawson Lakes,5095,City of Salisbury
+Pooraka,5095,City of Salisbury
+Gulfview Heights,5096,City of Salisbury
+Para Hills,5096,City of Salisbury
+Para Hills West,5096,City of Salisbury
+Gulfview Heights,5096,City of Tea Tree Gully
+Para Hills,5096,City of Tea Tree Gully
+Redwood Park,5097,City of Tea Tree Gully
+Ridgehaven,5097,City of Tea Tree Gully
+St Agnes,5097,City of Tea Tree Gully
+Walkley Heights,5098,City of Port Adelaide Enfield
+Ingle Farm,5098,City of Salisbury
+Walkley Heights,5098,City of Salisbury
+Parafield,5106,City of Salisbury
+Salisbury South,5106,City of Salisbury
+Green Fields,5107,City of Salisbury
+Parafield Gardens,5107,City of Salisbury
+Paralowie,5108,City of Salisbury
+Salisbury,5108,City of Salisbury
+Salisbury Downs,5108,City of Salisbury
+Salisbury North,5108,City of Salisbury
+Brahma Lodge,5109,City of Salisbury
+Salisbury East,5109,City of Salisbury
+Salisbury Heights,5109,City of Salisbury
+Salisbury Park,5109,City of Salisbury
+Salisbury Plain,5109,City of Salisbury
+Salisbury Heights,5109,City of Tea Tree Gully
+Waterloo Corner,5110,City of Playford
+Bolivar,5110,City of Salisbury
+Burton,5110,City of Salisbury
+Direk,5110,City of Salisbury
+Globe Derby Park,5110,City of Salisbury
+St Kilda,5110,City of Salisbury
+Waterloo Corner,5110,City of Salisbury
+Edinburgh,5111,City of Salisbury
+Elizabeth,5112,City of Playford
+Elizabeth East,5112,City of Playford
+Elizabeth Grove,5112,City of Playford
+Elizabeth South,5112,City of Playford
+Elizabeth Vale,5112,City of Playford
+Hillbank,5112,City of Playford
+Elizabeth Vale,5112,City of Salisbury
+Davoren Park,5113,City of Playford
+Edinburgh North,5113,City of Playford
+Elizabeth Downs,5113,City of Playford
+Elizabeth North,5113,City of Playford
+Elizabeth Park,5113,City of Playford
+Andrews Farm,5114,City of Playford
+Blakeview,5114,City of Playford
+Craigmore,5114,City of Playford
+Gould Creek,5114,City of Playford
+Humbug Scrub,5114,City of Playford
+One Tree Hill,5114,City of Playford
+Sampson Flat,5114,City of Playford
+Smithfield,5114,City of Playford
+Smithfield Plains,5114,City of Playford
+Uleybury,5114,City of Playford
+Yattalunga,5114,City of Playford
+Gould Creek,5114,City of Tea Tree Gully
+Kudla,5115,Town of Gawler
+Munno Para,5115,City of Playford
+Munno Para West,5115,City of Playford
+Munno Para Downs,5115,City of Playford
+Evanston,5116,Town of Gawler
+Evanston Gardens,5116,Town of Gawler
+Evanston Park,5116,Town of Gawler
+Evanston South,5116,Town of Gawler
+Hillier,5116,Town of Gawler
+Evanston Park,5116,City of Playford
+Hillier,5116,City of Playford
+Angle Vale,5117,City of Playford
+Bibaringa,5118,Town of Gawler
+Gawler,5118,Town of Gawler
+Gawler East,5118,Town of Gawler
+Gawler South,5118,Town of Gawler
+Gawler West,5118,Town of Gawler
+Willaston,5118,Town of Gawler
+Bibaringa,5118,City of Playford
+Buckland Park,5120,City of Playford
+Virginia,5120,City of Playford
+MacDonald Park,5121,City of Playford
+Penfield,5121,City of Playford
+Penfield Gardens,5121,City of Playford
+Golden Grove,5125,City of Tea Tree Gully
+Greenwith,5125,City of Tea Tree Gully
+Fairview Park,5126,City of Tea Tree Gully
+Surrey Downs,5126,City of Tea Tree Gully
+Yatala Vale,5126,City of Tea Tree Gully
+Wynn Vale,5127,City of Tea Tree Gully
+Houghton,5131,City of Tea Tree Gully
+Upper Hermitage,5131,City of Tea Tree Gully
+Leawood Gardens,5150,City of Burnside
+Leawood Gardens,5150,City of Mitcham
+Crafers West,5152,City of Mitcham
+Stirling,5152,City of Mitcham
+Ironbank,5153,City of Onkaparinga
+Upper Sturt,5156,City of Mitcham
+Cherry Gardens,5157,City of Onkaparinga
+Clarendon,5157,City of Onkaparinga
+Coromandel East,5157,City of Onkaparinga
+Dorset Vale,5157,City of Onkaparinga
+Kangarilla,5157,City of Onkaparinga
+Hallett Cove,5158,City of Marion
+O'Halloran Hill,5158,City of Marion
+Sheidow Park,5158,City of Marion
+Trott Park,5158,City of Marion
+O'Halloran Hill,5158,City of Onkaparinga
+Aberfoyle Park,5159,City of Onkaparinga
+Chandlers Hill,5159,City of Onkaparinga
+Flagstaff Hill,5159,City of Onkaparinga
+Happy Valley,5159,City of Onkaparinga
+Lonsdale,5160,City of Onkaparinga
+Old Reynella,5161,City of Onkaparinga
+Reynella,5161,City of Onkaparinga
+Reynella East,5161,City of Onkaparinga
+Morphett Vale,5162,City of Onkaparinga
+Woodcroft,5162,City of Onkaparinga
+Hackham,5163,City of Onkaparinga
+Hackham West,5163,City of Onkaparinga
+Huntfield Heights,5163,City of Onkaparinga
+Onkaparinga Hills,5163,City of Onkaparinga
+Christie Downs,5164,City of Onkaparinga
+Christies Beach,5165,City of Onkaparinga
+O'Sullivan Beach,5166,City of Onkaparinga
+Port Noarlunga,5167,City of Onkaparinga
+Port Noarlunga South,5167,City of Onkaparinga
+Noarlunga Centre,5168,City of Onkaparinga
+Noarlunga Downs,5168,City of Onkaparinga
+Old Noarlunga,5168,City of Onkaparinga
+Moana,5169,City of Onkaparinga
+Seaford,5169,City of Onkaparinga
+Seaford Heights,5169,City of Onkaparinga
+Seaford Meadows,5169,City of Onkaparinga
+Seaford Rise,5169,City of Onkaparinga
+Maslin Beach,5170,City of Onkaparinga
+Blewitt Springs,5171,City of Onkaparinga
+McLaren Flat,5171,City of Onkaparinga
+McLaren Vale,5171,City of Onkaparinga
+Tatachilla,5171,City of Onkaparinga
+The Range,5172,City of Onkaparinga
+Whites Valley,5172,City of Onkaparinga
+Willunga,5172,City of Onkaparinga
+Willunga South,5172,City of Onkaparinga
+Aldinga,5173,City of Onkaparinga
+Aldinga Beach,5173,City of Onkaparinga
+Port Willunga,5173,City of Onkaparinga
+Sellicks Beach,5174,City of Onkaparinga
+Sellicks Hill,5174,City of Onkaparinga
+Adelaide Airport,5950,City of West Torrens
