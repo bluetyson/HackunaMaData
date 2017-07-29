@@ -4,6 +4,36 @@ library (tidyr)
 
 ##############################################################################################################
 #
+# DATAFRAME : POPULATION BY SEX AND AGE RANGE
+#
+##############################################################################################################
+
+# Keep only total population, total population by age and sex
+census.person.char.by.sex = read.csv(file = "data/census/2016Census_P01_SA_POA.csv")
+census.person.char.by.sex.tot = census.person.char.by.sex [, grepl ("POA_CODE_2016|Tot_|Age_\\d", names (census.person.char.by.sex))]
+census.person.char.by.sex.tot = subset (census.person.char.by.sex.tot, select = -c(Indigenous_persons_Tot_M, Indigenous_persons_Tot_F, Indigenous_persons_Tot_P))
+
+# remove POA from postcode
+census.person.char.by.sex.tot$POA_CODE_2016 =  sapply(census.person.char.by.sex.tot$POA_CODE_2016, substring, 4, 99)
+
+# write.csv (x = census.person.char.by.sex.tot, file = "data/census/2016Census_P01_SA_POA2.csv")
+
+census.person.char.by.sex.tot = read.csv (file = "data/census/2016Census_P01_SA_POA2.csv")
+
+save (census.person.char.by.sex.tot, file = "data/census/processed/census.total.people.by.age.range.RData")
+
+# reshape data using gather
+census.person.char.by.sex.tot.reshaped = subset (census.person.char.by.sex.tot, select = -c (Total.Female, Total.Male, Total)) 
+
+census.person.char.by.sex.tot.reshaped = 
+  census.person.char.by.sex.tot.reshaped %>%
+  gather(class, total, -POA_CODE_2016)
+
+
+
+
+##############################################################################################################
+#
 # DATAFRAME : WEEKLY RENT
 #
 ##############################################################################################################
