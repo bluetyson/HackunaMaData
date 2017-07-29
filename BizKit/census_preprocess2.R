@@ -14,7 +14,7 @@ census.person.char.by.sex.tot$POA_CODE_2016 =  sapply(census.person.char.by.sex.
 #
 
 # all columns usefull
-census.medians.averages = read.csv(file = "data/census/2016Census_G02_SA_POA.csv")
+census.medians.averages = read.csv(file = "data/census/2016Census_P02_SA_POA.csv")
 census.medians.averages = sapply(census.medians.averages$POA_CODE_2016, substring, 4, 99)
 
 
@@ -57,7 +57,7 @@ highest.year.school.tot = highest.year.school [, grepl ("POA_CODE_2016|_Tot$", n
 highest.year.school.tot$POA_CODE_2016 =  sapply(highest.year.school.tot$POA_CODE_2016, substring, 4, 99)
 
 
-#keep the personal weekly input by band
+#keep the personal weekly income by band
 census.weekly.income = read.csv(file = "data/census/2016Census_P17_SA_POA.csv")
 census.weekly.income.tot = census.weekly.income [, grepl ("POA_CODE_2016|_Tot$", names (census.weekly.income))]
 # remove POA from postcode
