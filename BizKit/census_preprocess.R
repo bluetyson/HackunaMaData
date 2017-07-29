@@ -25,12 +25,23 @@ save (census.person.char.by.sex.tot, file = "data/census/processed/census.total.
 # reshape data using gather
 census.person.char.by.sex.tot.reshaped = subset (census.person.char.by.sex.tot, select = -c (Total.Female, Total.Male, Total)) 
 
-census.person.char.by.sex.tot.reshaped = 
+save (census.person.char.by.sex.tot.reshaped, file = "data/census/processed/census.total.people.by.age.range.reshaped.RData")
+
+# keep max per group
+census.suburb.age.profile = 
   census.person.char.by.sex.tot.reshaped %>%
   gather(class, total, -POA_CODE_2016)
 
+census.suburb.age.profile = census.suburb.age.profile %>% group_by(POA_CODE_2016) %>% top_n(1, total)
 
+# add a class
+census.suburb.age.profile$class = as.factor (census.suburb.age.profile$class)
+census.suburb.age.profile$class = revalue(census.suburb.age.profile$class, c("tier.1.0.14"="kids",
+                                                                              "tier.2.15.19"="teenagers",
+                                                                              "tier.3.20.54"="adults",
+                                                                              "tier.4.54.100"="seniors"))
 
+save (census.person.char.by.sex.tot.reshaped, file = "data/census/processed/census.suburb.age.profile.RData")
 
 ##############################################################################################################
 #
