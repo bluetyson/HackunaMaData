@@ -182,6 +182,23 @@ highchartOutput('chart')
 # count.data <- data.table(category=row.names(count.cats),
 #                          count=as.numeric(count.cats))
 
+library(viridisLite)
+library(treemap)
+
+cols <- viridis(6)
+cols <- substr(cols, 0, 7)
+
+# yelp.get <- dget("yelp_api_call.R")
+# yelp.data <- yelp.get(data_for_chart()$zipcode,"Australia")
+# cats <- unlist(yelp.data$category)
+# count.cats <- table(cats)
+# count.data <- data.table(category=row.names(count.cats),
+#                          count=as.numeric(count.cats))
+# 
+# tm <- treemap(count.data[count>1], index = "category",
+#               title = "",
+#               vSize = "count", vColor = "count",
+#               type = "value", palette = rev(viridis(6)))
 
 output$chart2 <- renderHighchart({
 yelp.get <- dget("yelp_api_call.R")
@@ -191,14 +208,24 @@ count.cats <- table(cats)
 count.data <- data.table(category=row.names(count.cats),
                          count=as.numeric(count.cats))
 
+tm <- treemap(count.data, index = "category",
+              title = "",
+              vSize = "count", vColor = "count",
+              type = "value", palette = rev(viridis(6)))
+
   highchart() %>%
-    hc_title(text = "distribution of cuisines",
-             style = list(fontSize = "15px")) %>% 
-    hc_chart(type = "column") %>% 
-    hc_xAxis(categories = count.data$category) %>% 
-    hc_add_series(count.data$count, name = "count", showInLegend = FALSE) 
+    hc_add_series_treemap(tm, allowDrillToNode=TRUE, layoutAlgorithm="squarified") 
+  #   hc_chart(type = "treemap") %>%
+  #   hc_size(count.data$count) %>%
+  #   hc_colorAxis() %>%
+  #   hc_xAxis(categories = count.data$category) %>%
+  #   hc_add_series(count.data$count, name = "category", showInLegend = FALSE,
+  #                 dataLabels = list(enabled = TRUE, format = '{point.value}')) 
+  
 })
 
 highchartOutput('chart2')
+
+
 
 ```
