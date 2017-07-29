@@ -1,8 +1,12 @@
 
 # LIBRARIES
-library ("httr")
-library ("purrr")
-library ("dplyr")
+library (httr)
+library (purrr)
+library (dplyr)
+# https://cran.r-project.org/web/packages/jsonlite/vignettes/json-aaquickstart.html
+# library (jsonlite)
+
+# API DOCO: https://www.yelp.com/developers/documentation/v3/business_search
 
 # CREDENTIALS: yelp login credentials
 yelp = "https://api.yelp.com"
@@ -20,9 +24,12 @@ token = content(yelp.res)$access_token
 
 
 # QUERY
+query.postcode = 5064
+query.country  = "Australia"
+
 term = "coffee"
-location = "Vancouver, BC"
-limit = 3
+location = paste (query.postcode, ", ", query.country)
+limit = 10
 (url =
     modify_url (yelp, path = c("v3", "businesses", "search"),
                query = list(term = term, location = location, limit = limit)))
@@ -31,12 +38,16 @@ res = GET (url, add_headers('Authorization' = paste("bearer", token)))
 # show request status
 http_status(res)
 
-# get response content
+# get response content in list of lists (converted from JSON)
+  # result is a list of list, use length in a while loop to get individual elements,
+  # or map_df as seen below to get individual attributes from elements.
 ct = content(res)
 
 # show just name and phone
 ct$businesses %>% 
   map_df(`[`, c("name", "phone"))
 
+# display list as JSON
+# json = fromJSON (toJSON(ct, pretty=TRUE))
 
 
