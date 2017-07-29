@@ -10,3 +10,4 @@ src/launcher.h
 .vagrant
 node_modules/
 .Rproj.user
+.Rhistory
