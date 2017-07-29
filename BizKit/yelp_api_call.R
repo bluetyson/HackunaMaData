@@ -22,11 +22,12 @@ yelp.res = POST("https://api.yelp.com/oauth2/token",
 
 token = content(yelp.res)$access_token
 
-function(postcode, country, term) {
-  limit <- 10
+function(postcode, country, term="", limit=50) {
   location <- paste0(postcode,", ",country)
+
   url <- modify_url(yelp, path=c("v3","businesses","search"),
                     query=list(term=term,location=location,limit=limit))
+  
   response <- GET (url, add_headers('Authorization' = paste("bearer", token)))
   
   # show request status
@@ -37,8 +38,6 @@ function(postcode, country, term) {
   # or map_df as seen below to get individual attributes from elements.
   ct <- content(response)
   
-  return(ct)
+  return(ct$businesses)
   
 }
-
-
