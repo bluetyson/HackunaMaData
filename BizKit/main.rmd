@@ -8,11 +8,24 @@ runtime: shiny
 ---
 
 ```{r setup, include=FALSE}
+if (!require(flexdashboard)) {
+  install.packages("flexdashboard")
+}
+if (!require(shiny)) {
+  install.packages("shiny")
+}
+if (!require(leaflet)) {
+  install.packages("leaflet")
+}
+if (!require(highcharter)) {
+  install.packages("highcharter")
+}
 library(flexdashboard)
 library(shiny)
 library(leaflet)
 library(highcharter)
-centroids.orig <- read.csv(file="suburb_centroids.csv", header=TRUE, sep=",")
+
+centroids <- read.csv(file="suburb_centroids.csv", header=TRUE, sep=",")
 latitude<-c(35.94077, 35.83770, 35.84545, 35.81584, 35.79387, 36.05600)
 longitude<-c(-78.58010, -78.78084, -78.72444, -78.62568, -78.64262,-78.67600)
 amounts1<-c(27, 44, 34, 46, 25, 15)
