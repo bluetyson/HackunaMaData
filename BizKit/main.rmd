@@ -1,0 +1,102 @@
+---
+title: "Flex Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(shiny)
+library(leaflet)
+library(highcharter)
+centroids.orig <- read.csv(file="suburb_centroids.csv", header=TRUE, sep=",")
+latitude<-c(35.94077, 35.83770, 35.84545, 35.81584, 35.79387, 36.05600)
+longitude<-c(-78.58010, -78.78084, -78.72444, -78.62568, -78.64262,-78.67600)
+amounts1<-c(27, 44, 34, 46, 25, 15)
+amounts2<-c(34, 52, 35, 78, 14, 24)
+ids<-c("a", "b", "c", "d", "e", "f")
+df<-data.frame(ids,amounts1,amounts2,latitude,longitude)
+```
+
+Inputs {.sidebar}
+-----------------------------------------------------------------------
+
+Microarray data matrix for 80 experiments with Saccharomyces Cerevisiae
+organism extracted from R's `biclust` package.
+
+Sebastian Kaiser, Rodrigo Santamaria, Tatsiana Khamiakova, Martin Sill, Roberto
+  Theron, Luis Quintales, Friedrich Leisch and Ewoud De Troyer. (2015). biclust:
+  BiCluster Algorithms. R package version 1.2.0.
+  http://CRAN.R-project.org/package=biclust
+  
+```{r}
+latitude.max <- max(centroids$lat)
+latitude.min <- min(centroids$lat)
+longitude.max <- max(centroids$long)
+latitude.min <- max(centroids$long)
+# Rate at which to flag high download traffic
+sliderInput("latitude.range", label = h3("Slider Range"), min = latitude.min, 
+        max = latitude.max, value = c(latitude.min, latitude.max))
+
+```
+
+Row
+-----------------------------------------------------------------------
+
+```{r}
+library("rgdal")
+
+url <- "Suburbs.geojson"
+
+res <- readOGR(url, layer="OGRGeoJSON" ,verbose = FALSE)
+
+num <- reactive(as.integer(input$latitude.range))
+
+output$map <- renderLeaflet({
+
+  leaflet() %>%
+    addTiles() %>%
+    addMarkers(data = centroids, lng = centroids$long, lat = centroids$lat, 
+               layerId = ~centroids$id, popup = ~centroids$suburb, clusterOptions = markerClusterOptions()) %>% 
+  addPolygons(data = res)
+
+})
+
+leafletOutput('map')  
+
+```
+
+Row
+-----------------------------------------------------------------------
+
+```{r}
+
+click_marker <- eventReactive(input$map_marker_click, {
+
+  x <- input$map_marker_click
+
+  return(x$id)
+
+})
+
+data_for_chart <- reactive({
+
+  return(centroids[centroids$id == click_marker(), ])
+
+})
+
+output$chart <- renderHighchart({
+
+  highchart() %>%
+    hc_chart(type = 'column') %>%
+    hc_add_series(data = c(data_for_chart()$lat, 
+                           data_for_chart()$long))
+
+})
+
+highchartOutput('chart')
+
+```
