@@ -38,6 +38,32 @@ function(postcode, country, term="", limit=50) {
   # or map_df as seen below to get individual attributes from elements.
   ct <- content(response)
   
-  return(ct$businesses)
+  output <- data.table(name=character(),
+                       category=list(),
+                       lat=numeric(),
+                       long=numeric(),
+                       price=character())
+  
+  ## Extract names
+  name.data <- as.character(ct$businesses %>% map("name"))
+  category.data <- vector("list", length(ct$businesses))
+  
+  for (i in 1:length(ct$businesses)) {
+    category.data[[i]] <- ct$businesses[[i]]$categories %>% map("title")
+  }
+  
+  lat.data <- as.numeric(ct$businesses %>% map("coordinates") %>% map("latitude"))
+  long.data <- as.numeric(ct$businesses %>% map("coordinates") %>% map("longitude")) 
+  price.data <- as.character(ct$businesses %>% map("price"))
+  rating.data <- as.numeric(ct$businesses %>% map("rating"))
+  
+  output <- data.table(name=name.data,
+                       category=c(category.data),
+                       lat=lat.data,
+                       long=long.data,
+                       price=price.data,
+                       rating=rating.data)
+  
+  return(output)
   
 }
