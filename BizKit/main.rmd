@@ -80,17 +80,9 @@ Row
 -----------------------------------------------------------------------
 
 ```{r}
-## Read suburbs data
-url <- "data/geoJSON/Suburbs.geojson"
-res <- readOGR(url, layer="OGRGeoJSON" ,verbose = FALSE)
-
-## Subset data for Adelaide area only
-url <- "data/csv/Adelaide_Zips.csv"
-adelaide.zips <- read.csv(url)
-unique.zips <- unique(adelaide.zips$Post.Code)
-
-match.indices <- which(res$POSTCODE %in% unique.zips)
-subset.data <- res[na.omit(match.indices),]
+## Read Adelaide suburbs data
+url <- "data/geoJSON/adelaide_polygons.geojson"
+subset.data <- readOGR(url, layer="OGRGeoJSON", verbose=FALSE)
 
 ## Read bike lane data
 tkml <- readOGR("data/KMZ/bike_routes.kml", "templayer0", verbose=FALSE)
