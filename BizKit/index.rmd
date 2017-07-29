@@ -10,7 +10,9 @@ runtime: shiny
 ```{r setup, include=FALSE}
 # NOTE: SET YOUR WORKING DIRECTORY HERE (LOCATION OF REPO)
 # setwd()
-
+if (!require(rmarkdown)) {
+  install.packages("rmarkdown")
+}
 if (!require(flexdashboard)) {
   install.packages("flexdashboard")
 }
@@ -39,6 +41,7 @@ if (!require(maptools)) {
   install.packages("maptools")
 }
 
+library(rmarkdown)
 library(flexdashboard)
 library(shiny)
 library(leaflet)
@@ -95,20 +98,38 @@ subset.data <- res[na.omit(match.indices),]
 ## Read bike lane data
 tkml <- readOGR("data/KMZ/bike_routes.kml", "templayer0", verbose=FALSE)
 
-num <- reactive(as.integer(input$latitude.range))
+## Major and minor roads
+major.roads <- readOGR("data/KMZ/major_roads.kml", "MajorRoads_Layer", verbose=FALSE)
+minor.roads <- readOGR("data/KMZ/minor_roads.kml", "MinorRoads_Layer", verbose=FALSE)
+
+
+## Initialize color bins for legend
+testvector <- c(1:length(subset.data))
+bins <- c(0, 100, 200, 300, 400, 500, 600, Inf)
+pal <- colorBin("YlOrRd", domain = testvector, bins = bins)
 
 output$map <- renderLeaflet({
 
-  leaflet() %>%
+  x <- leaflet() %>%
     addTiles() %>%
     addMarkers(data = centroids, 
                lng = centroids$long, 
                lat = centroids$lat, 
                layerId = ~centroids$id, 
                popup = ~centroids$suburb, 
-               clusterOptions = markerClusterOptions()) %>% 
+               clusterOptions = markerClusterOptions()) %>%
     addPolygons(data = subset.data) %>%
-    addPolylines(data = tkml, color="red")
+    addPolygons(
+      data = subset.data,
+      fillColor = ~pal(testvector),
+      weight = 2,
+      opacity = 1,
+      color = "white",
+      dashArray = "3",
+      fillOpacity = 0.7) %>%
+    addPolylines(data = major.roads, color="red") %>%
+    addPolylines(data = minor.roads, color="salmon") %>%
+    addPolylines(data = tkml, color="green")
   
 })
 
