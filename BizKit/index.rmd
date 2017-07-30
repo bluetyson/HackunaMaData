@@ -89,16 +89,14 @@ longitude.max <- max(centroids$long)
 latitude.min <- max(centroids$long)
 
 sliderInput("range", "Population Density:", 
-            min=0, max=5000, value = c(0,5000))
+            min=0, max=5000, value = c(0,5000), step = 100)
 
 sliderInput("range", "Income Per Capita (fortnight):", 
-            min = 0, max = 10000, value = c(0,10000))
-
-sliderInput("range", "Range:",
-            min = 1, max = 1000, value = c(200,500))
+            min = 0, max = 10000, value = c(0,10000), format = "$#,##0", 
+            step = 1000)
 
 sliderInput("format", "Year", 
-            min = 2010, max = 2017, value = 0, step = 1, 
+            min = 2010, max = 2017, value = 0, step = 1,
             locale="us", animate=TRUE)
 
 ```
@@ -174,7 +172,9 @@ output$map <- renderLeaflet({
     overlayGroups = c("Bike Lanes (CBD)", "Major Roads (CBD)", 
                       "Minor Roads (CBD)", "Population Density Map"),
     options = layersControlOptions(collapsed = FALSE)) %>%
-    hideGroup("Minor Roads (CBD)")
+    hideGroup("Minor Roads (CBD)") %>%
+    hideGroup("Major Roads (CBD)") %>%
+    hideGroup("Bike Lanes (CBD)")
   })
 
 leafletOutput('map')  
