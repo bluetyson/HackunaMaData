@@ -1,5 +1,5 @@
 ---
-title: "BizKit 1.0"
+title: "BizKit 0.0.1 - DEMO (GovHack SA 2017)"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
@@ -76,32 +76,27 @@ grants <- read.csv(file="data/csv/NEIS.csv", header=TRUE, sep=",")
 Inputs {.sidebar}
 -----------------------------------------------------------------------
 
-This is a demo for the BizKit business planning tool.
+```{r}
+img(src = "data/images/bizkitlogo.jpg", width=230, height=230)
+```
+  
+<h3><b> Filters: </b></h3>
   
 ```{r}
 latitude.max <- max(centroids$lat)
 latitude.min <- min(centroids$lat)
 longitude.max <- max(centroids$long)
 latitude.min <- max(centroids$long)
-# Rate at which to flag high download traffic
-# Rate at which to flag high download traffic
-selectInput("clusterNum", label = h3("Cluster number"), 
-            choices = list("1" = 1, "2" = 2, "3" = 3, "4" = 4, "5" = 5), 
-            selected = 1)
 
-# Simple integer interval
 sliderInput("range", "Population Density:", 
             min=0, max=5000, value = c(0,5000))
 
-# Decimal interval with step value
 sliderInput("range", "Income Per Capita (fortnight):", 
             min = 0, max = 10000, value = c(0,10000))
 
-# Specification of range within an interval
 sliderInput("range", "Range:",
             min = 1, max = 1000, value = c(200,500))
 
-# Provide a custom currency format for value display, with basic animation
 sliderInput("format", "Year", 
             min = 2010, max = 2017, value = 0, step = 1, 
             locale="us", animate=TRUE)
