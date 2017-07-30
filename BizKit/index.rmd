@@ -70,6 +70,7 @@ centroids <- read.csv(file="data/csv/suburb_centroids.csv", header=TRUE, sep=","
 df.census.age.profile = read.csv(file="data/census/processed/df.age.profile.csv", header=TRUE, sep=",")
 df.census.weekly.income = read.csv(file="data/census/processed/df.weekly.income.csv", header=TRUE, sep=",")
 df.census.family.comp = read.csv(file="data/census/processed/df.family.composition.csv", header=TRUE, sep=",")
+grants <- read.csv(file="data/csv/NEIS.csv", header=TRUE, sep=",")
 ```
 
 Inputs {.sidebar}
@@ -285,6 +286,32 @@ cols <- substr(cols, 0, 7)
 #               vSize = "count", vColor = "count",
 #               type = "value", palette = rev(viridis(6)))
 
+
+
+
+```
+
+Row
+-----------------------------------------------------------------------
+
+```{r}
+
+
+# grant chart
+
+output$grant_chart <- renderHighchart({
+ 
+ placeholder <- data_for_chart()  
+ 
+ highchart() %>%
+   hc_chart(type = 'column') %>%
+   hc_xAxis(categories = grants$reason) %>%
+   hc_title(text = "Number of Grants") %>%
+   hc_add_series(data = grants$number, name = "Total")
+})
+
+ highchartOutput('grant_chart')
+ 
 output$chart2 <- renderHighchart({
 yelp.get <- dget("yelp_api_call.R")
 yelp.data <- yelp.get(data_for_chart()$zipcode,"Australia")
@@ -304,6 +331,4 @@ tm <- treemap(count.data, index = "category",
 })
 
 highchartOutput('chart2')
-
-
 ```
