@@ -41,7 +41,7 @@ census.suburb.age.profile$class = revalue(census.suburb.age.profile$class, c("ti
                                                                               "tier.3.20.54"="adults",
                                                                               "tier.4.54.100"="seniors"))
 
-save (census.person.char.by.sex.tot.reshaped, file = "data/census/processed/census.suburb.age.profile.RData")
+save (census.suburb.age.profile, file = "data/census/processed/census.suburb.age.profile.RData")
 
 ##############################################################################################################
 #
