@@ -11,3 +11,4 @@ src/launcher.h
 node_modules/
 .Rproj.user
 .Rhistory
+.RData
