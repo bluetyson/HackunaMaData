@@ -77,7 +77,7 @@ Inputs {.sidebar}
 -----------------------------------------------------------------------
 
 ```{r}
-img(src = "data/images/bizkitlogo.jpg", width=230, height=230)
+img(src = "data/images/bizkitlogo.png", width=230, height=230)
 ```
   
 <h3><b> Filters: </b></h3>
@@ -184,7 +184,7 @@ leafletOutput('map')
 Row
 -----------------------------------------------------------------------
 
-<h1> Customer Segmentation </h1>
+<h3> Customer Segmentation </h3>
 
 ```{r}
 yelp.get <- dget("yelp_api_call.R")
@@ -291,11 +291,30 @@ cols <- substr(cols, 0, 7)
 Row
 -----------------------------------------------------------------------
 
-<h1> Market Analysis </h1>
+<h3> Market Analysis </h3>
 
 ```{r}
 
-output$chart2 <- renderHighchart({
+
+
+# grant chart
+
+output$grant_chart <- renderHighchart({
+ 
+ placeholder <- data_for_chart()  
+ 
+ highchart() %>%
+   hc_chart(type = 'column') %>%
+   hc_xAxis(categories = grants$reason) %>%
+   hc_title(text = "Number of Failed Grants") %>%
+   hc_add_series(data = grants$number, name = "Total")
+})
+
+ highchartOutput('grant_chart')
+ 
+ ### Treemap
+ 
+ output$chart2 <- renderHighchart({
 yelp.get <- dget("yelp_api_call.R")
 yelp.data <- yelp.get(data_for_chart()$zipcode,"Australia")
 cats <- unlist(yelp.data$category)
@@ -314,19 +333,6 @@ tm <- treemap(count.data, index = "category",
 })
 
 highchartOutput('chart2')
-
-# grant chart
-
-output$grant_chart <- renderHighchart({
  
- placeholder <- data_for_chart()  
  
- highchart() %>%
-   hc_chart(type = 'column') %>%
-   hc_xAxis(categories = grants$reason) %>%
-   hc_title(text = "Number of Failed Grants") %>%
-   hc_add_series(data = grants$number, name = "Total")
-})
-
- highchartOutput('grant_chart')
 ```
