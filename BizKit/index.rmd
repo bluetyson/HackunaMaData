@@ -76,13 +76,7 @@ grants <- read.csv(file="data/csv/NEIS.csv", header=TRUE, sep=",")
 Inputs {.sidebar}
 -----------------------------------------------------------------------
 
-Microarray data matrix for 80 experiments with Saccharomyces Cerevisiae
-organism extracted from R's `biclust` package.
-
-Sebastian Kaiser, Rodrigo Santamaria, Tatsiana Khamiakova, Martin Sill, Roberto
-  Theron, Luis Quintales, Friedrich Leisch and Ewoud De Troyer. (2015). biclust:
-  BiCluster Algorithms. R package version 1.2.0.
-  http://CRAN.R-project.org/package=biclust
+This is a demo for the BizKit business planning tool.
   
 ```{r}
 latitude.max <- max(centroids$lat)
@@ -94,6 +88,23 @@ latitude.min <- max(centroids$long)
 selectInput("clusterNum", label = h3("Cluster number"), 
             choices = list("1" = 1, "2" = 2, "3" = 3, "4" = 4, "5" = 5), 
             selected = 1)
+
+# Simple integer interval
+sliderInput("range", "Population Density:", 
+            min=0, max=5000, value = c(0,5000))
+
+# Decimal interval with step value
+sliderInput("range", "Income Per Capita (fortnight):", 
+            min = 0, max = 10000, value = c(0,10000))
+
+# Specification of range within an interval
+sliderInput("range", "Range:",
+            min = 1, max = 1000, value = c(200,500))
+
+# Provide a custom currency format for value display, with basic animation
+sliderInput("format", "Year", 
+            min = 2010, max = 2017, value = 0, step = 1, 
+            locale="us", animate=TRUE)
 
 ```
 
