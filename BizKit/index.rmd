@@ -65,7 +65,7 @@ library(ggmap)
 library(maptools)
 library(data.table)
 library(tidyr)
-
+render("index.rmd", "html_document")
 centroids <- read.csv(file="data/csv/suburb_centroids.csv", header=TRUE, sep=",")
 df.census.age.profile = read.csv(file="data/census/processed/df.age.profile.csv", header=TRUE, sep=",")
 df.census.weekly.income = read.csv(file="data/census/processed/df.weekly.income.csv", header=TRUE, sep=",")
