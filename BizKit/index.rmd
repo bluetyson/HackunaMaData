@@ -43,6 +43,15 @@ if (!require(maptools)) {
 if (!require(data.table)) {
   install.packages("data.table")
 }
+if (!require(tidyr)) {
+  install.packages("tidyr")
+}
+if (!require(treemap)) {
+  install.packages("treemap")
+}
+
+
+library(rmarkdown)
 
 library(rmarkdown)
 library(flexdashboard)
@@ -55,8 +64,12 @@ library(maps)
 library(ggmap)
 library(maptools)
 library(data.table)
+library(tidyr)
 
 centroids <- read.csv(file="data/csv/suburb_centroids.csv", header=TRUE, sep=",")
+df.census.age.profile = read.csv(file="data/census/processed/df.age.profile.csv", header=TRUE, sep=",")
+df.census.weekly.income = read.csv(file="data/census/processed/df.weekly.income.csv", header=TRUE, sep=",")
+df.census.family.comp = read.csv(file="data/census/processed/df.family.composition.csv", header=TRUE, sep=",")
 ```
 
 Inputs {.sidebar}
@@ -162,17 +175,59 @@ data_for_chart <- reactive({
 
 })
 
+# age profile
 output$chart <- renderHighchart({
 
+  df.census.age.profile.postc = subset (df.census.age.profile, subset = POA_CODE_2016 == data_for_chart()$zipcode)
+  
+  df.census.age.profile.postc = 
+                      df.census.age.profile.postc %>%
+                        gather(class, total, -POA_CODE_2016)
+  
   highchart() %>%
-    hc_chart(type = 'column') %>%
-    hc_add_series(data = c(data_for_chart()$lat, 
-                           data_for_chart()$long))
+    hc_chart(type = 'pie') %>%
+    hc_title(text = "Age Profile") %>% 
+    hc_add_series_labels_values(df.census.age.profile.postc$class,df.census.age.profile.postc$total)
 
 })
 
 highchartOutput('chart')
 
+# weekly income
+output$chart_income <- renderHighchart({
+
+  df.census.weekly.income.postc = subset (df.census.weekly.income, subset = POA_CODE_2016 == data_for_chart()$zipcode)
+  
+  df.census.weekly.income.postc = 
+                      df.census.weekly.income.postc %>%
+                        gather(class, total, -POA_CODE_2016)
+  
+  highchart() %>%
+    hc_chart(type = 'pie') %>%
+    hc_title(text = "Weekly Income") %>%
+    hc_add_series_labels_values(df.census.weekly.income.postc$class,df.census.weekly.income.postc$total)
+
+})
+
+highchartOutput('chart_income')
+
+# family comp
+output$chart_fam <- renderHighchart({
+
+  df.census.family.comp.postc = subset (df.census.family.comp, subset = POA_CODE_2016 == data_for_chart()$zipcode)
+  
+  df.census.family.comp.postc = 
+                      df.census.family.comp.postc %>%
+                        gather(class, total, -POA_CODE_2016)
+  
+  highchart() %>%
+    hc_chart(type = 'pie') %>%
+    hc_title(text = "Family Composition") %>%
+    hc_add_series_labels_values(df.census.family.comp.postc$class,df.census.family.comp.postc$total)
+  
+})
+
+highchartOutput('chart_fam')
 
 ##### IMPORT YELP DATA ######
 # yelp.get <- dget("yelp_api_call.R")
