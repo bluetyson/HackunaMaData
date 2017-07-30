@@ -108,9 +108,14 @@ minor.roads <- readOGR("data/KMZ/minor_roads.kml", "MinorRoads_Layer", verbose=F
 
 
 ## Initialize color bins for legend
-testvector <- c(1:length(subset.data))
-bins <- c(0, 100, 200, 300, 400, 500, 600, Inf)
-pal <- colorBin("YlOrRd", domain = testvector, bins = bins)
+bins <- c(0, 500, 1000, 1500, 2000, 2500, 3000, Inf)
+pal <- colorBin("YlOrRd", domain = centroids$density, bins = bins)
+
+content <- paste(sep = "<br/>",
+  "<b><a href='http://www.samurainoodle.com'>Samurai Noodle</a></b>",
+  "606 5th Ave. S",
+  "Seattle, WA 98138"
+)
 
 output$map <- renderLeaflet({
 
@@ -120,20 +125,35 @@ output$map <- renderLeaflet({
                lng = centroids$long, 
                lat = centroids$lat, 
                layerId = ~centroids$id, 
-               popup = ~centroids$suburb, 
+               popup = ~paste0("<b>Suburb: </b>", 
+                               centroids$suburb, "<br>",
+                               "<b>Pop. Density: </b>", 
+                               round(centroids$density,0), 
+                               " persons/km<sup>2</sup>"), 
                clusterOptions = markerClusterOptions()) %>%
-    addPolygons(data = subset.data) %>%
+    addPolygons(data = subset.data, weight=1, color="gray") %>%
     addPolygons(
       data = subset.data,
-      fillColor = ~pal(testvector),
+      fillColor = ~pal(centroids$density),
       weight = 2,
       opacity = 1,
       color = "white",
       dashArray = "3",
-      fillOpacity = 0.7) %>%
-    addPolylines(data = major.roads, color="red") %>%
-    addPolylines(data = minor.roads, color="salmon") %>%
-    addPolylines(data = tkml, color="green")
+      fillOpacity = 0.7,
+      group="Population Density Map") %>%
+    addLegend(pal = pal, values = centroids$density,
+              opacity = 0.7, title = "Pop. Density",
+              position = "bottomright") %>%
+    addPolylines(data = major.roads, color="red", 
+                 weight=2, group="Major Roads (CBD)") %>%
+    addPolylines(data = minor.roads, color="salmon", 
+                 weight=2, group="Minor Roads (CBD)") %>%
+    addPolylines(data = tkml, color="green", 
+                 weight=2, group="Bike Lanes (CBD)") %>%
+    addLayersControl(
+    overlayGroups = c("Bike Lanes (CBD)", "Major Roads (CBD)", 
+                      "Minor Roads (CBD)", "Population Density Map"),
+    options = layersControlOptions(collapsed = FALSE))
   })
 
 leafletOutput('map')  
