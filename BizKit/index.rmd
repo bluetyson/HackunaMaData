@@ -184,6 +184,8 @@ leafletOutput('map')
 Row
 -----------------------------------------------------------------------
 
+<h1> Customer Segmentation </h1>
+
 ```{r}
 yelp.get <- dget("yelp_api_call.R")
 
@@ -248,7 +250,7 @@ output$chart_fam <- renderHighchart({
   
   highchart() %>%
     hc_chart(type = 'pie') %>%
-    hc_title(text = "Family Composition") %>%
+    hc_title(text = "Customer Profile") %>%
     hc_add_series_labels_values(df.census.family.comp.postc$class,df.census.family.comp.postc$total)
   
 })
@@ -289,24 +291,10 @@ cols <- substr(cols, 0, 7)
 Row
 -----------------------------------------------------------------------
 
+<h1> Market Analysis </h1>
+
 ```{r}
 
-
-# grant chart
-
-output$grant_chart <- renderHighchart({
- 
- placeholder <- data_for_chart()  
- 
- highchart() %>%
-   hc_chart(type = 'column') %>%
-   hc_xAxis(categories = grants$reason) %>%
-   hc_title(text = "Number of Grants") %>%
-   hc_add_series(data = grants$number, name = "Total")
-})
-
- highchartOutput('grant_chart')
- 
 output$chart2 <- renderHighchart({
 yelp.get <- dget("yelp_api_call.R")
 yelp.data <- yelp.get(data_for_chart()$zipcode,"Australia")
@@ -326,4 +314,19 @@ tm <- treemap(count.data, index = "category",
 })
 
 highchartOutput('chart2')
+
+# grant chart
+
+output$grant_chart <- renderHighchart({
+ 
+ placeholder <- data_for_chart()  
+ 
+ highchart() %>%
+   hc_chart(type = 'column') %>%
+   hc_xAxis(categories = grants$reason) %>%
+   hc_title(text = "Number of Failed Grants") %>%
+   hc_add_series(data = grants$number, name = "Total")
+})
+
+ highchartOutput('grant_chart')
 ```
