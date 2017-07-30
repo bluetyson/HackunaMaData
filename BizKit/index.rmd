@@ -166,7 +166,8 @@ output$map <- renderLeaflet({
     addLayersControl(
     overlayGroups = c("Bike Lanes (CBD)", "Major Roads (CBD)", 
                       "Minor Roads (CBD)", "Population Density Map"),
-    options = layersControlOptions(collapsed = FALSE))
+    options = layersControlOptions(collapsed = FALSE)) %>%
+    hideGroup("Minor Roads (CBD)")
   })
 
 leafletOutput('map')  
@@ -182,8 +183,6 @@ yelp.get <- dget("yelp_api_call.R")
 click_marker <- eventReactive(input$map_marker_click, {
 
   x <- input$map_marker_click
-  # centroids[centroids$id == input$map_market_click, ]
-  # yelp.data <<- yelp.get(input$map_marker_click, "Australia")
 
   return(x$id)
 
@@ -290,17 +289,10 @@ tm <- treemap(count.data, index = "category",
 
   highchart() %>%
     hc_add_series_treemap(tm, allowDrillToNode=TRUE, layoutAlgorithm="squarified") 
-  #   hc_chart(type = "treemap") %>%
-  #   hc_size(count.data$count) %>%
-  #   hc_colorAxis() %>%
-  #   hc_xAxis(categories = count.data$category) %>%
-  #   hc_add_series(count.data$count, name = "category", showInLegend = FALSE,
-  #                 dataLabels = list(enabled = TRUE, format = '{point.value}')) 
   
 })
 
 highchartOutput('chart2')
-
 
 
 ```
