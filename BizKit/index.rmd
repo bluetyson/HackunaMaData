@@ -71,6 +71,7 @@ df.census.age.profile = read.csv(file="data/census/processed/df.age.profile.csv"
 df.census.weekly.income = read.csv(file="data/census/processed/df.weekly.income.csv", header=TRUE, sep=",")
 df.census.family.comp = read.csv(file="data/census/processed/df.family.composition.csv", header=TRUE, sep=",")
 grants <- read.csv(file="data/csv/NEIS.csv", header=TRUE, sep=",")
+scores <- read.csv(file="data/csv/scores.csv", header=TRUE, sep=",")
 ```
 
 Inputs {.sidebar}
@@ -265,11 +266,7 @@ highchartOutput('chart_fam')
 # count.data <- data.table(category=row.names(count.cats),
 #                          count=as.numeric(count.cats))
 
-library(viridisLite)
-library(treemap)
 
-cols <- viridis(6)
-cols <- substr(cols, 0, 7)
 
 # yelp.get <- dget("yelp_api_call.R")
 # yelp.data <- yelp.get(data_for_chart()$zipcode,"Australia")
@@ -291,12 +288,7 @@ cols <- substr(cols, 0, 7)
 Row
 -----------------------------------------------------------------------
 
-<h3> Market Analysis </h3>
-
 ```{r}
-
-
-
 # grant chart
 
 output$grant_chart <- renderHighchart({
@@ -311,10 +303,20 @@ output$grant_chart <- renderHighchart({
 })
 
  highchartOutput('grant_chart')
+```
+
+<h3> Market Analysis </h3>
+
+```{r}
+### Treemap
  
- ### Treemap
- 
- output$chart2 <- renderHighchart({
+library(viridisLite)
+library(treemap)
+
+cols <- viridis(6)
+cols <- substr(cols, 0, 7)
+
+output$chart2 <- renderHighchart({
 yelp.get <- dget("yelp_api_call.R")
 yelp.data <- yelp.get(data_for_chart()$zipcode,"Australia")
 cats <- unlist(yelp.data$category)
@@ -333,6 +335,51 @@ tm <- treemap(count.data, index = "category",
 })
 
 highchartOutput('chart2')
- 
- 
+```
+
+Row
+-----------------------------------------------------------------------
+
+<h3> Exposure Score </h3>
+
+```{r}
+output$exposure_chart <- renderGauge({
+
+  gauge(scores[scores$zipcode == data_for_chart()$id,"exposure"], min = 0, max = 100, gaugeSectors(
+
+  success = c(80, 100), warning = c(40, 79), danger = c(0, 39)))
+
+})
+
+gaugeOutput('exposure_chart')
+
+```
+
+<h3> Visibility Score </h3>
+
+```{r}
+
+output$visibility_chart <- renderGauge({
+
+  gauge(scores[scores$zipcode == data_for_chart()$id,"visibility"], min = 0, max = 100, gaugeSectors(
+
+  success = c(80, 100), warning = c(40, 79), danger = c(0, 39)))
+
+})
+
+gaugeOutput('visibility_chart')
+
+```
+
+<h3> Convenience Score </h3>
+
+```{r}
+output$convenience_chart <- renderGauge({
+  gauge(scores[scores$zipcode == data_for_chart()$id,"visibility"], min = 0, max = 100, gaugeSectors(
+
+  success = c(80, 100), warning = c(40, 79), danger = c(0, 39)))
+})
+
+gaugeOutput('convenience_chart')
+
 ```
