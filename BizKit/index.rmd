@@ -153,7 +153,8 @@ output$map <- renderLeaflet({
     addLayersControl(
     overlayGroups = c("Bike Lanes (CBD)", "Major Roads (CBD)", 
                       "Minor Roads (CBD)", "Population Density Map"),
-    options = layersControlOptions(collapsed = FALSE))
+    options = layersControlOptions(collapsed = FALSE)) %>%
+    hideGroup("Minor Roads (CBD)")
   })
 
 leafletOutput('map')  
